@@ -34,6 +34,7 @@ publishing {
 
     repositories {
         maven(url = layout.buildDirectory.dir("staging-deploy"))
+        maven { url = uri("https://jitpack.io") }
     }
 }
 
@@ -197,6 +198,12 @@ kotlin {
     explicitApi = ExplicitApiMode.Strict
 
     jvmToolchain(21)
+
+    java {
+        toolchain {
+            languageVersion.set(JavaLanguageVersion.of(21))
+        }
+    }
 
     sourceSets {
         commonMain {
